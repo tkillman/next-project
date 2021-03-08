@@ -489,16 +489,8 @@ export const getProcOutCursorResult = <T = any>({
 	let outCursorResult = null;
 	const curName = cursorName ?? 'OUT_RET_CURSOR';
 
-	console.log(fieldName);
-	console.log(data);
-	console.log(outResult);
-	console.log(outRetCode);
-	console.log(curName);
-
 	if (outResult && outRetCode === '00' && outResult.length > 0) {
-		console.log('in');
 		const retCursor = outResult[0][curName] ?? outResult;
-		console.log(retCursor);
 		outCursorResult =
 			retCursor?.length > 0
 				? retCursor

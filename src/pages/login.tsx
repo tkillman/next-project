@@ -21,13 +21,14 @@ interface IProps {
 }
 
 const Login: React.FC<IProps> = ({ router }) => {
+    console.log(router);
     const [cookies, setCookie, removeCookie] = useCookies(['donggyu']);
 
     const userId = () => (cookies && cookies.userId ? cookies.userId : '');
     const isSaveId = () => (cookies && cookies.isSaveId === 'true' ? true : false);
 
     let refUrl = '/';
-    console.log(router);
+
 	if (router && router.query.refurl) {
 		const { refurl} = router.query;
 	}
@@ -41,7 +42,9 @@ const Login: React.FC<IProps> = ({ router }) => {
             isSaveId: isSaveId()
         },
         onSubmit: async values => {
-            await console.log("a");
+            console.log('aa', router.query.refurl);
+            
+            await console.log('bb');
         }
     });
 
