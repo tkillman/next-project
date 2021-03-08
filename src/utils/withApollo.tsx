@@ -13,7 +13,6 @@ function parseCookies(req?: any, options = {}) {
 const withApollo = (App: any) => {
 
     return class WithData extends React.Component {
-        public static displayName = `WithData(${App.displayName})`;
         public static propTypes = {
 			apolloState: PropTypes.object.isRequired
 		};
