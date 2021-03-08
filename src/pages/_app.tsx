@@ -5,7 +5,7 @@ import { Provider } from 'mobx-react';
 import { getSnapshot, onPatch } from 'mobx-state-tree';
 import makeInspectable from 'mobx-devtools-mst';
 import { ApolloProvider } from '@apollo/client';
-
+import withApollo from '~/utils/withApollo';
 //import { ThemeProvider } from '@material-ui/core/styles';
 //import theme from '../../envConfig/muiTheme';
 
@@ -59,7 +59,7 @@ class RootApp extends App<IProps> {
 
     public render() {
         const { Component, pageProps, apolloClient } = this.props;
-
+		
         return (
             <ApolloProvider client={apolloClient}>
                 <Provider store={this.store}>
@@ -70,4 +70,4 @@ class RootApp extends App<IProps> {
     }    
 }    
 
-export default RootApp;
+export default withApollo(RootApp);
