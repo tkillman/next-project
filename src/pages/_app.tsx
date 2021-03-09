@@ -46,7 +46,6 @@ class RootApp extends App<IProps> {
 			// 크롬 mobx tools 에 MST 로 상태변화를 볼 수 있게 한다.
 			makeInspectable(this.store);
 		}
-
     }
 
     public componentDidMount() {

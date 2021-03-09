@@ -21,7 +21,7 @@ interface IProps {
 }
 
 const Login: React.FC<IProps> = ({ router }) => {
-    console.log(router);
+    
     const [cookies, setCookie, removeCookie] = useCookies(['donggyu']);
 
     const userId = () => (cookies && cookies.userId ? cookies.userId : '');
@@ -30,7 +30,8 @@ const Login: React.FC<IProps> = ({ router }) => {
     let refUrl = '/';
 
 	if (router && router.query.refurl) {
-		const { refurl} = router.query;
+		const { refurl : encUrl} = router.query;
+        refUrl = encUrl.toString();
 	}
 
     // formik 설정
@@ -42,9 +43,7 @@ const Login: React.FC<IProps> = ({ router }) => {
             isSaveId: isSaveId()
         },
         onSubmit: async values => {
-            console.log('aa', router.query.refurl);
-            
-            await console.log('bb');
+            await router.push(refUrl);
         }
     });
 
