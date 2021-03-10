@@ -31,9 +31,8 @@ const index: React.FC<IProps> = ({ router }) => {
         gqlData: data
     });
 
-    console.log(resultMenuAuthData);
-
 	useEffect(() => {
+        console.log('index.ts useEffect');
 		// 메뉴 디폴트 URL 로 리다이렉트
 		if (data) {
 			// const defaultUrl = resultMenuAuthData

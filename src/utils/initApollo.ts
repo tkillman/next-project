@@ -19,7 +19,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 const isDev = process.env.NODE_ENV === 'development';
 
 const create = (router: Router, initialState: any, { getToken }: IOptions) => {
-    console.log('create init');
+    console.log('initApllo create init');
     	// Apollo GraphQL 서버 URL 세팅
 	const httpLink = createHttpLink({
 		uri: process.env.API_SERVER_URL,

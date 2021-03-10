@@ -35,6 +35,7 @@ class RootApp extends App<IProps> {
     private store: IStore;
 
     constructor(props: any) {
+		console.log('_app.tsx constructor');
         super(props);
         this.store = initializeStore(props.isServer, props.initialState);
 
