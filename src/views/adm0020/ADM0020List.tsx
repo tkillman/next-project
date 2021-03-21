@@ -8,7 +8,7 @@ import { IAdm0020ModelType } from '~/types/storeTypes';
 import { observer } from 'mobx-react';
 import { Button, CardBody, CardHeader, Col, Row } from 'reactstrap';
 import BtnExcelFileUpload, {IExcelColDef, IExcelParseRes} from '~/components/button/BtnExcelFileUpload'
-
+import {useAdm0020GetOrderListQuery} from '~/src/graphql/adm0020/gql.gen'
 /**  ref type */
 export interface IRefADM0020List {
 	refetch: () => Promise<void>;
@@ -25,7 +25,9 @@ const ADM0020List: React.RefForwardingComponent<IRefADM0020List, IProps> = (
 )=> {
     const { searchModel, listModel } = props.store;
     const excelColInfo : IExcelColDef[]= [
-		{headerName : "콜센타코드", field : "CCCODE"}
+		{headerName : "콜센타코드", field : "CCCODE"},
+		{headerName : "CID", field : "CID"},
+		{headerName : "기사명", field : "RIDER_INFO"}
 	]
 
 	const handleCallback = (res : IExcelParseRes) : void=> {
@@ -35,6 +37,13 @@ const ADM0020List: React.RefForwardingComponent<IRefADM0020List, IProps> = (
 	const {excelData} = listModel;
 	console.log(excelData);
 	
+	const { called: mainListCalled, data: mainListData, refetch: mainListRefetch }
+	= useAdm0020GetOrderListQuery({
+		fetchPolicy: 'no-cache'
+	});
+
+	console.log(mainListData);
+
     return (
         <div>
 			<Button>test</Button>

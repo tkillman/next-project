@@ -19,10 +19,11 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 const isDev = process.env.NODE_ENV === 'development';
 
 const create = (router: Router, initialState: any, { getToken }: IOptions) => {
-    console.log('initApllo create init');
+    console.log('initApllo create init', process.env.API_SERVER_URL);
     	// Apollo GraphQL 서버 URL 세팅
 	const httpLink = createHttpLink({
-		uri: process.env.API_SERVER_URL,
+		//uri: process.env.API_SERVER_URL,
+		uri : "http://localhost:4001/graphql",
 		credentials: 'include'
 		// 종류: omit(생략), include(다른 도메인일 경우), same-origin(같은 도메인일 경우)
 		// credentials: 'same-origin'
