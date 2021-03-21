@@ -7,6 +7,7 @@ import { Card, CardBody, CardGroup } from 'reactstrap';
 import ADM0020SearchForm from '~/views/adm0020/ADM0020SearchForm';
 import ADM0020List, { IRefADM0020List } from '~/views/adm0020/ADM0020List';
 import React, { useRef, useEffect } from 'react';
+import { number } from 'mobx-state-tree/dist/internal';
 
 /** props */
 interface IProps {
@@ -21,10 +22,15 @@ const ADM0020Wrapper = styled('div')`
 	}
 `;
 
+interface ICType {
+	cc1 : number;
+	cc2 : number;
+}
+
 const ADM0020: React.FC<IProps> = props => {
 
 	const refAdm0020List = useRef<IRefADM0020List>(null);
-
+	
     return (
 		<MasterLayout>
 			<ADM0020Wrapper>

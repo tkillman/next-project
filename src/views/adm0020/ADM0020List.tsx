@@ -35,14 +35,21 @@ const ADM0020List: React.RefForwardingComponent<IRefADM0020List, IProps> = (
 	}
 	
 	const {excelData} = listModel;
-	console.log(excelData);
+	
+	const getCccodeByDb = ({excelData : excelData}) => {
+		console.log('getCccodeByDb', excelData);
+		return excelData;
+	} 
+	
+	const resultData = getCccodeByDb({excelData : excelData});
+
+	console.log(resultData);
 	
 	const { called: mainListCalled, data: mainListData, refetch: mainListRefetch }
 	= useAdm0020GetOrderListQuery({
 		fetchPolicy: 'no-cache'
 	});
 
-	console.log(mainListData);
 
     return (
         <div>
