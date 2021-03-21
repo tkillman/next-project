@@ -1,6 +1,7 @@
 import { Instance, types, applySnapshot, destroy } from 'mobx-state-tree';
 import _ from 'lodash';
 import adm0020SearchStore from './adm0020SearchStore';
+import adm0020ListStore from './adm0020ListStore';
 
 /**
  *  AD0020 모델
@@ -17,6 +18,10 @@ const model = types
 		searchModel: types.optional(
 			adm0020SearchStore.model,
 			adm0020SearchStore.defaultValue
+		),
+		listModel : types.optional(
+			adm0020ListStore.model,
+			adm0020ListStore.defaultValue
 		)
 	})
 	.actions(self => ({
@@ -34,7 +39,8 @@ const model = types
 /** 초기화 값 */
 const defaultValue = {
 	identifier: 'adm0020Model',
-	searchModel: adm0020SearchStore.defaultValue
+	searchModel: adm0020SearchStore.defaultValue,
+	listModel : adm0020ListStore.defaultValue
 };
 
 /** create or initialize */

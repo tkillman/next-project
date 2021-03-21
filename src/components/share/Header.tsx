@@ -89,7 +89,7 @@ const Header: React.FC<IProps> = props => {
 							{/* 브랜드 이미지/로고 */}
 							<div className='logo-icon'>
 								<img
-									src='images/brand/logiall-bi-mark.png'
+									src=''
 									// src='images/brand/logiall-bi.svg'
 									alt='homepage'
 									className='img-logiall-bi img-responsive dark-logo'

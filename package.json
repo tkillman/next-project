@@ -29,7 +29,8 @@
 		"rimraf": "3.0.0",
 		"styled-components": "^4.4.1",
 		"ts-node": "^8.1.1",
-		"typescript": "^3.7.3"
+		"typescript": "^3.7.3",
+		"exceljs": "4.1.1"
 	},
 	"scripts": {
 		"####### development mode": "",
